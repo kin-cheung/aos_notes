@@ -1,7 +1,5 @@
 # Virtualization
 
-![](https://media.giphy.com/media/3rVfBUa9f0RErtMZBH/giphy.gif)
-
 ## Table of Contents
 
 * [Platform Virtualization](#platform-virtualization)
