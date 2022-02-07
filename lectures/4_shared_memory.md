@@ -1,7 +1,5 @@
 # Shared Memory
 
-![cat eating corn](https://media.giphy.com/media/aQUGAeZ1fBWpy/giphy.gif)
-
 ## Table of Contents
 * [Introduction](#introduction)
     * [Shared Memory Caching](#shared-memory-caching)
