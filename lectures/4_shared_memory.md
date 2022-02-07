@@ -383,7 +383,7 @@ Another important difference is that **there is no need for a fetch-and-phi oper
 
 The total amount of communication needed is similar between the two: O(logN). All of the communication, because it is split up, could possibly be done in parallel. The tournament barrier also works if the machine isn't a shared memory multiprocessor, because basically all we are doing is **message-passing**. 
 
-Let's make a comparison of tournament to MCS. The tournament is only going to be able to represent a tournament between two processors. This means that it **cannot exploit the spatial locality** that exists in the caches (multiple spin variables exist in the same cache line). 
+Let's make a comparison of tournament to MCS. The tournament is only going to be able to represent a tournament between two processors. This means that it **cannot exploit the spatial locality** that exists in the caches (multiple spin variables exist in the same cache line). The edge that it has over MCS is that since it only involves message passing, it can work on clusters as well as shared memory systems.
 
 ### Dissemination Barrier
 
