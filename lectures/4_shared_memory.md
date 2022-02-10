@@ -118,7 +118,7 @@ Let's focus on the **hardware implementing cache coherence**. There are two poss
 
 <img src="resources/4_shared_memory/write_invalidate.png">
 
-In **write invalidate**, if a particular memory location is contained in all the caches, and if a processor decides to write to said memory location in the cache, then the **hardware will ensure that all the other references in the other caches are invalidated**. It does this by broadcasting a signal on the system bus. The caches snoop on the system bus to watch out for these kinds of signals.
+In **write invalidate**, if a particular memory location is contained in all the caches, and if a processor decides to write to said memory location in the cache, then the **hardware will ensure that all the other references in the other caches are invalidated**. It does this by broadcasting a signal on the system bus. The caches snoop on the system bus to watch out for these kinds of signals. It is a more commonly used approach compared to write update. Accessing invalidated caches will cause to retrieve from main memory again, it will increase contention on the interconnected network when it happens.
 
 <img src="resources/4_shared_memory/write_update.png">
 
