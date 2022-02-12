@@ -589,7 +589,7 @@ One interesting strategy for improving cache hits is **procrastination**. In thi
 
 In modern multicore processors, there are multiple cores on a single processor. In addition to these multiple cores, the processes themselves are also **hardware-multithreaded** (also called hyperthreading). This means that if a thread on a current processor is experiencing a long latency operation, in that case the hardware may switch to execute one of the other threads (just concurrency). 
 
-<img src="resources/4_shared_memory/multi_core.png">
+<img src="resources/4_shared_memory/multicore.png">
 
 The difference however between hardware-multithreading and basic concurrency is that the thread isn't removed from the core, it can hang around in the CPU while it is waiting for the async action, and then immediately be switched to when the interrupt comes in. This is implemented by **providing extra storage (more caching) in the CPU**. 
 
