@@ -545,7 +545,7 @@ Let's look at different scheduling policies that an operating system may choose 
 1. **FCFS** - Pick the earliest scheduled thread. **Ignores affinity for fairness**. 
 2. **Fixed Processor** - A thread is always scheduled to the same processor. This might be decided by a load balancer. 
 3. **Last Processor** - The processor is going to pick a thread that used to run on it. It gives preference to the threads that might have a hotter cache. If such a thread is unavailable, pick someone else.
-4. **Minimum Intervening Policy** - Save the affinity for every thread for each processor. Pick the processor that has the highest affinity.
+4. **Minimum Intervening Policy** - Save the affinity for every thread for each processor. Pick the processor that has the highest affinity. The lower the number of intervening threads, the higher the affinity.
 5. **Limited Minimum Intervening** - If I have a thousand processors, than the metadata per processor might grow to be too big. Therefore, we should only keep data for that last couple of processors in the metadata.
 6. **Minimum Intervening Plus Queue** - Don't just make a decision based upon the affinity index of the processor, but we should also look at the queue for this processor because the scheduling queue might already be full. By the time that the process is scheduled, the cache might already be invalidated which kind of ruins the scheduling algorithm in the first place. Thus the processor that should be picked **minimizes the affinity index AND the number of processes in the queue**. 
 
