@@ -503,9 +503,9 @@ Data can only be passed by value into this shared memory. Why? because pointers 
 
 Then the client traps into the kernel with the binding object, the binding object indicates what procedure descriptor to use, the kernel can then use the procedure descriptor to pass control to the server to start executing.
 
-Next, the server's server stub deserializes the arguments from the A-stack and feeds them to the server procedure.
+Next, the server's server stub copies the arguments from the A-stack to the E-stack in the server domain and feeds them to the server procedure.
 
-The procedure is executed, the result is serialized and passed to the A-stack. The server then traps back to the kernel who can inform the client that the procedure has finished. 
+The procedure is executed, the result is copied to the A-stack. The server then traps back to the kernel who can inform the client that the procedure has finished.
 
 <img src="resources/4_shared_memory/rpc3.png">
 
