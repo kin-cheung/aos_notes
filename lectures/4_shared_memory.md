@@ -729,7 +729,7 @@ Clustered objects offer several advantages.
 
 The object reference is same for all the nodes, regardless of which node a service is executing, they all have the same reference. Under the covers however you can have incremental optimization of the implementation of the object. 
 
-The advantage of the replication is that the **object references can access their respective replicas independently**. This means **less locking**. This means page fault handling (as one example) will scale with the number of processes!
+The advantage of the replication is that the **object references can access their respective replicas independently**. This means **less locking**. This means page fault handling (as one example) will scale with the number of processors!
 
 ### Implementation of Clustered Objects
 
