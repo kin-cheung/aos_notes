@@ -770,7 +770,7 @@ It's important to make sure that **memory allocation scales** with the size of t
 
 Similar to microkernel-based OS design, functionalities in the Tornado OS are contained in these clustered objects. These objects need to communicate with each other in order to function. Thus, **we need efficient IPC between objects**.
 
-The IPC is realized through PPC, if objects are on the same computer, then Tornado uses hand-off scheduling which doesn't use a context switch(Similar to RPC).  However, if the other service is on a full processor, then there is a full context switch. One last thing is that all **replica management is done via software**.
+The IPC is realized through PPC, if objects are on the same processor, then Tornado uses hand-off scheduling which doesn't use a context switch(Similar to RPC).  However, if the other service is on a remote processor, then there is a full context switch. Unlike cache coherence that is handled by hardware, all **replica management is done via software** and keeping replicas consistent through PPC is key.
 
 ### Tornado Summary
 
@@ -778,7 +778,7 @@ Object-oriented design which promotes scalability with clustered objects and a p
 
 Reference counting can be used in the implementation in objects to remove the need for hierarchical locking. Locking is also self-contained so that we can have concurrent access.
 
-There is limited sharing of data objects in this system, and this is the real key to the scalability of the system.
+Limited sharing of OS data structures through replicas while optimizing common cases, e.g. page fault handling, is the key to the scalability of the system.
 
 
 ### Summary of Corey System
