@@ -515,7 +515,7 @@ There are now only two copies that are being done because of the shared memory e
 
 <img src="resources/4_shared_memory/rpc4.png">
 
-To summarize, during the actual calls, copies through the kernel are eliminated. The **actual overhead that are incurred in making these calls are 1) the client trap/kernel validation, 2) the switching of domains/address spaces** between the client and the server and 3) the return trap that goes back to the client address space. The implicit overhead comes from the loss of locality during the domain switching.
+To summarize, during the actual calls, copies through the kernel are eliminated. The **actual overhead that are incurred in making these calls are 1) the client trap/kernel validation, 2) the switching of domains/address spaces between the client and the server and 3) the return trap that goes back to the client address space**. The implicit overhead comes from the loss of locality during the domain switching.
 
 
 ### RPC on SMP
