@@ -328,13 +328,13 @@ When a TLB entry is looked up, both the address and the PID are checked. The har
 
 Liedtke, the author of the L3 microkernel, had some suggestions for exploiting the hardware to avoid TLB flushing even if the TLB is not AS/PID tagged.
 
-In particular, the architecture might support segment registers (which bound the legal virtual addresses of a running process). You can carve out individual protection domains in the linear address space. 
+In particular, the architecture might support segment registers (which bound the legal virtual addresses of a running process). You can carve out individual protection domains in the linear address space (packing multiple protection domains into the same hardware address space). 
 
 <img src="resources/2_os_structure_resources/segment_registers.png">
 
 What if the protection domain is so large that it needs the entire hardware address space? If this is the situation, then the TLB needs to be flushed on a context switch. 
 
-Switching between small protection domains can actually be pretty efficient. On the other hand if the switch is from a large protection domain to another, the switching cost is not that significant, BUT the loss of locality is significant (TLB misses and cache misses).
+Switching between small protection domains (switching segment registers) can actually be pretty efficient. On the other hand if the switch is from a large protection domain to another, the switching cost (explicit) is not that significant, BUT the loss of locality (implicit) is significant (TLB misses and cache misses).
 
 
 The third myth about microkernel performance is that thread **switching and IPC is expensive**. The explicit cost in this case is saving all the volatile state of a processor into the thread context block. L3 shows that this can be competitive to the SPIN and exokernel design.
